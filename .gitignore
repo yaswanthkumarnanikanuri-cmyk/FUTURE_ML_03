@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Virtual Environment
+venv/
+.venv/
+env/
+.env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Saved models & vectorizers
+models/*.pkl
+
+# Large dataset (avoid pushing massive csv files to github, though it will be kept locally)
+# D:\FUTURE_ML_O3\data\Resume.csv
+
+# Output logs and caches
+.streamlit/
+*.log
