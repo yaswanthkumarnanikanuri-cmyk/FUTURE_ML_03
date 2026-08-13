@@ -4,19 +4,26 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
+# Set writeable path for NLTK data in serverless environments (like Vercel)
+import os
+nltk_data_dir = "/tmp/nltk_data"
+if not os.path.exists(nltk_data_dir):
+    os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
 # Initialize NLTK resources automatically if missing
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
-    nltk.download('stopwords', quiet=True)
+    nltk.download('stopwords', download_dir=nltk_data_dir, quiet=True)
 try:
     nltk.data.find('corpora/wordnet')
 except LookupError:
-    nltk.download('wordnet', quiet=True)
+    nltk.download('wordnet', download_dir=nltk_data_dir, quiet=True)
 try:
     nltk.data.find('corpora/omw-1.4')
 except LookupError:
-    nltk.download('omw-1.4', quiet=True)
+    nltk.download('omw-1.4', download_dir=nltk_data_dir, quiet=True)
 
 # Attempt to load spaCy, with fallback
 nlp = None
