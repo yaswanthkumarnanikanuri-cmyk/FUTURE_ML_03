@@ -9,7 +9,7 @@ def download_and_extract_dataset():
     ssl._create_default_https_context = ssl._create_unverified_context
     
     zip_url = "https://github.com/HarshaVardhanM08/FUTURE_ML_03/archive/refs/heads/main.zip"
-    dest_dir = r"D:\FUTURE_ML_O3\data"
+    dest_dir = os.path.join(os.path.dirname(__file__), "data")
     os.makedirs(dest_dir, exist_ok=True)
     
     print("Step 1: Downloading repository ZIP containing compressed dataset...")

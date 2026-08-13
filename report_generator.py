@@ -5,7 +5,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 
-def generate_pdf_report(output_path=r"D:\FUTURE_ML_O3\report\FUTURE_ML_O3_Project_Report.pdf"):
+def generate_pdf_report(output_path=None):
+    if output_path is None:
+        output_path = os.path.join(os.path.dirname(__file__), "report", "FUTURE_ML_O3_Project_Report.pdf")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     print(f"[ReportGenerator] Starting report compilation to: {output_path}...")

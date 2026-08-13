@@ -64,10 +64,9 @@ def compute_final_scores_and_rank(df, similarities, skill_match_results, sim_wei
     cols = ["Rank", "CAND_ID", "Category", "Similarity_Score", "Skill_Match_Score", "Final_Score", "Matched_Skills", "Missing_Skills", "Fit_Justification"]
     return df_ranked[cols]
 
-def save_ranking_outputs(df_ranked, output_dir=r"D:\FUTURE_ML_O3\outputs"):
-    """
-    Saves the final ranking and skill gap analysis to separate CSV outputs.
-    """
+def save_ranking_outputs(df_ranked, output_dir=None):
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "outputs")
     os.makedirs(output_dir, exist_ok=True)
     
     # 1. Ranked Candidates Summary

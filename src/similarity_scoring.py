@@ -5,7 +5,9 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-def train_and_save_tfidf(preprocessed_resumes, save_path=r"D:\FUTURE_ML_O3\models\tfidf_vectorizer.pkl"):
+def train_and_save_tfidf(preprocessed_resumes, save_path=None):
+    if save_path is None:
+        save_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models", "tfidf_vectorizer.pkl")
     """
     Fits a TfidfVectorizer on all cleaned resumes and serializes it using joblib.
     """
@@ -27,7 +29,9 @@ def train_and_save_tfidf(preprocessed_resumes, save_path=r"D:\FUTURE_ML_O3\model
     
     return vectorizer
 
-def load_tfidf_vectorizer(load_path=r"D:\FUTURE_ML_O3\models\tfidf_vectorizer.pkl"):
+def load_tfidf_vectorizer(load_path=None):
+    if load_path is None:
+        load_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models", "tfidf_vectorizer.pkl")
     """
     Loads a serialized TfidfVectorizer.
     """

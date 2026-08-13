@@ -43,7 +43,7 @@ def run_ml_pipeline():
     df["Skill_Count"] = df["Extracted_Skills"].apply(len)
     
     # Save a cache of the preprocessed dataset for faster loading in the Streamlit app
-    cache_path = r"D:\FUTURE_ML_O3\data\preprocessed_resumes.csv"
+    cache_path = os.path.join(os.path.dirname(__file__), "data", "preprocessed_resumes.csv")
     df.to_csv(cache_path, index=False)
     print(f"[Pipeline] Preprocessed cache saved to: {cache_path}")
     
@@ -56,7 +56,7 @@ def run_ml_pipeline():
     
     # 4. Load a default Job Description for baseline pipeline testing
     print("\n[Pipeline] Step 3: Loading baseline Job Description...")
-    jd_df = pd.read_csv(r"D:\FUTURE_ML_O3\data\job_descriptions.csv")
+    jd_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "data", "job_descriptions.csv"))
     mle_jd = jd_df[jd_df["Job_Title"] == "Machine Learning Engineer"].iloc[0]["Job_Description"]
     
     # Parse baseline JD

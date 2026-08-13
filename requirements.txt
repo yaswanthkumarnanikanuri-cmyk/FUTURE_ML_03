@@ -11,3 +11,4 @@ reportlab>=3.6.0
 pypdf>=3.0.0
 ipykernel
 notebook
+Flask

@@ -16,7 +16,9 @@ plt.rcParams.update({
     "figure.figsize": (10, 6)
 })
 
-def generate_eda_plots(df, extracted_skills_list, output_dir=r"D:\FUTURE_ML_O3\images"):
+def generate_eda_plots(df, extracted_skills_list, output_dir=None):
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "images")
     """
     Generates and saves the exploratory data analysis plots.
     """
@@ -52,7 +54,9 @@ def generate_eda_plots(df, extracted_skills_list, output_dir=r"D:\FUTURE_ML_O3\i
     
     print("[Visualization] Saved category_distribution.png and top_skills.png.")
 
-def generate_screening_plots(df_ranked, output_dir=r"D:\FUTURE_ML_O3\images"):
+def generate_screening_plots(df_ranked, output_dir=None):
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "images")
     """
     Generates and saves visual screening performance plots.
     """

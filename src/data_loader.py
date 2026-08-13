@@ -2,7 +2,9 @@ import os
 import pandas as pd
 import numpy as np
 
-def load_resume_dataset(filepath=r"D:\FUTURE_ML_O3\data\Resume.csv"):
+def load_resume_dataset(filepath=None):
+    if filepath is None:
+        filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "Resume.csv")
     """
     Loads and cleans the raw Kaggle Resume dataset.
     Generates anonymous candidate IDs and handles missing values.
