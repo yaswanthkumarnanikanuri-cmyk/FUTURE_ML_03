@@ -44,7 +44,8 @@ def run_ml_pipeline():
     
     # Save a cache of the preprocessed dataset for faster loading in the Streamlit app
     cache_path = os.path.join(os.path.dirname(__file__), "data", "preprocessed_resumes.csv")
-    df.to_csv(cache_path, index=False)
+    df_cached = df.drop(columns=["Resume_str", "Resume_html"], errors="ignore")
+    df_cached.to_csv(cache_path, index=False)
     print(f"[Pipeline] Preprocessed cache saved to: {cache_path}")
     
     # 2. Train and Save TF-IDF Vectorizer

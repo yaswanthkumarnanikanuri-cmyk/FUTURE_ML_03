@@ -1,0 +1,17 @@
+# Exclude raw training dataset (not needed at runtime, 53.67 MB)
+data/Resume.csv
+
+# Exclude local notebook files
+notebook/
+.ipynb_checkpoints/
+
+# Exclude build and cache artifacts
+__pycache__/
+*.pyc
+*.log
+
+# Exclude local virtual environments
+venv/
+.venv/
+env/
+.env/
